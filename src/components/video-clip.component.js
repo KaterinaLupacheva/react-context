@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react';
 
 const videoStyles = {
-  marginTop: "100px",
-  width: "500px"
+  marginTop: '100px',
+  width: '500px',
 };
 
 const VideoClip = () => {
