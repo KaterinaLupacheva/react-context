@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { VideoContext } from '../context/video.context';
+import VideoContext from '../context/video.context';
 
 const styles = {
   width: '100px',
@@ -11,15 +11,10 @@ const styles = {
 };
 
 const PlayPauseButton = () => {
-  const vidContext = useContext(VideoContext);
+  const { status, togglePlayPause } = useContext(VideoContext);
   return (
-    <button
-      style={styles}
-      onClick={() =>
-        vidContext.togglePlayPause(vidContext.status === 'playing' ? 'paused' : 'playing')
-      }
-    >
-      {vidContext.status === 'playing' ? 'PAUSE' : 'PLAY'}
+    <button style={styles} onClick={togglePlayPause}>
+      {status === 'playing' ? 'PAUSE' : 'PLAY'}
     </button>
   );
 };

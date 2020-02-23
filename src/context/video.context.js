@@ -1,19 +1,8 @@
-import React, { createContext, useState } from 'react';
+import { createContext } from 'react';
 
-export const VideoContext = createContext({
-  status: null,
+const VideoContext = createContext({
+  status: 'paused',
   togglePlayPause: () => {},
 });
 
-export const VideoContextProvider = props => {
-  const togglePlayPause = newStatus => {
-    setState({ ...state, status: newStatus });
-  };
-
-  const [state, setState] = useState({
-    status: 'paused',
-    togglePlayPause: togglePlayPause,
-  });
-
-  return <VideoContext.Provider value={state}>{props.children}</VideoContext.Provider>;
-};
+export default VideoContext;

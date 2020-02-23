@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, createRef } from 'react';
-import { VideoContext } from '../context/video.context';
+import VideoContext from '../context/video.context';
 
 const videoStyles = {
   marginTop: '100px',
@@ -7,14 +7,14 @@ const videoStyles = {
 };
 
 const VideoClip = () => {
-  const vidContext = useContext(VideoContext);
+  const { status } = useContext(VideoContext);
 
   const vidRef = createRef();
 
   useEffect(() => {
-    if (vidContext.status === 'playing') {
+    if (status === 'playing') {
       vidRef.current.play();
-    } else if (vidContext.status === 'paused') {
+    } else if (status === 'paused') {
       vidRef.current.pause();
     }
   });
