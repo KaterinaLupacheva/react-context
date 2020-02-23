@@ -1,13 +1,13 @@
 import React from 'react';
 import VideoClip from './components/video-clip.component';
-import PlayPauseButton from './components/play-pause-button.component';
+import Controls from './components/controls.component';
 import './App.css';
 
 function App() {
   return (
     <div className="App">
       <VideoClip />
-      <PlayPauseButton />
+      <Controls />
     </div>
   );
 }
