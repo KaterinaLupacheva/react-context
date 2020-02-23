@@ -11,7 +11,7 @@ export const VideoContextProvider = props => {
   };
 
   const [state, setState] = useState({
-    status: 'playing',
+    status: 'paused',
     togglePlayPause: togglePlayPause,
   });
 

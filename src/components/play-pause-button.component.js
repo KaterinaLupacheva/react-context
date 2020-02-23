@@ -11,13 +11,15 @@ const styles = {
 };
 
 const PlayPauseButton = () => {
-  const state = useContext(VideoContext);
+  const vidContext = useContext(VideoContext);
   return (
     <button
       style={styles}
-      onClick={() => state.togglePlayPause(state.status === 'playing' ? 'paused' : 'playing')}
+      onClick={() =>
+        vidContext.togglePlayPause(vidContext.status === 'playing' ? 'paused' : 'playing')
+      }
     >
-      Click
+      {vidContext.status === 'playing' ? 'PAUSE' : 'PLAY'}
     </button>
   );
 };
