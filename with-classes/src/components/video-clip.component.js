@@ -8,6 +8,7 @@ const videoStyles = {
 
 const VideoClip = () => {
   const { status } = useContext(VideoContext);
+  console.log('Status from video ' + status);
 
   const vidRef = createRef();
 

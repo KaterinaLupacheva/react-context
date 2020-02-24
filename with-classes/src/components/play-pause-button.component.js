@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import VideoContext from '../context/video.context';
 
 const styles = {
@@ -10,13 +10,25 @@ const styles = {
   marginTop: '20px',
 };
 
-const PlayPauseButton = () => {
-  const { status, togglePlayPause } = useContext(VideoContext);
-  return (
-    <button style={styles} onClick={togglePlayPause}>
-      {status === 'playing' ? 'PAUSE' : 'PLAY'}
-    </button>
-  );
-};
+class PlayPauseButton extends React.Component {
+  componentDidMount() {
+    let vidContext = this.context;
+    console.log('Video status: ' + vidContext.status);
+  }
+
+  render() {
+    return (
+      <VideoContext.Consumer>
+        {({ status, togglePlayPause }) => (
+          <button style={styles} onClick={togglePlayPause}>
+            {status === 'playing' ? 'PAUSE' : 'PLAY'}
+          </button>
+        )}
+      </VideoContext.Consumer>
+    );
+  }
+}
+
+PlayPauseButton.contextType = VideoContext;
 
 export default PlayPauseButton;
