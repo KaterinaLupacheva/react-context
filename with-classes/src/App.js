@@ -8,15 +8,29 @@ class App extends React.Component {
   constructor(props) {
     super(props);
 
+    this.playVideo = () => {
+      let { status } = this.state;
+      if (status === 'playing') {
+        this.state.vidRef.current.play();
+      } else if (status === 'paused') {
+        this.state.vidRef.current.pause();
+      }
+    };
+
     this.togglePlayPause = () => {
-      this.setState(state => ({
-        status: state.status === 'playing' ? 'paused' : 'playing',
-      }));
+      this.setState(
+        state => ({
+          vidRef: React.createRef(),
+          status: state.status === 'playing' ? 'paused' : 'playing',
+        }),
+        () => this.playVideo()
+      );
     };
 
     this.state = {
       status: 'paused',
       togglePlayPause: this.togglePlayPause,
+      vidRef: undefined,
     };
   }
 

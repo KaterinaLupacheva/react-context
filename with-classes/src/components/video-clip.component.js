@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, createRef } from 'react';
+import React from 'react';
 import VideoContext from '../context/video.context';
 
 const videoStyles = {
@@ -6,28 +6,19 @@ const videoStyles = {
   width: '50vw',
 };
 
-const VideoClip = () => {
-  const { status } = useContext(VideoContext);
-  console.log('Status from video ' + status);
+class VideoClip extends React.Component {
+  render() {
+    return (
+      <video style={videoStyles} controls ref={this.context.vidRef}>
+        <source
+          src="https://react-context.s3.eu-central-1.amazonaws.com/Pouring+Of+Milk.mp4"
+          type="video/mp4"
+        />
+      </video>
+    );
+  }
+}
 
-  const vidRef = createRef();
-
-  useEffect(() => {
-    if (status === 'playing') {
-      vidRef.current.play();
-    } else if (status === 'paused') {
-      vidRef.current.pause();
-    }
-  });
-
-  return (
-    <video style={videoStyles} controls ref={vidRef}>
-      <source
-        src="https://react-context.s3.eu-central-1.amazonaws.com/Pouring+Of+Milk.mp4"
-        type="video/mp4"
-      />
-    </video>
-  );
-};
+VideoClip.contextType = VideoContext;
 
 export default VideoClip;

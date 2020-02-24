@@ -11,11 +11,6 @@ const styles = {
 };
 
 class PlayPauseButton extends React.Component {
-  componentDidMount() {
-    let vidContext = this.context;
-    console.log('Video status: ' + vidContext.status);
-  }
-
   render() {
     return (
       <VideoContext.Consumer>
@@ -28,7 +23,5 @@ class PlayPauseButton extends React.Component {
     );
   }
 }
-
-PlayPauseButton.contextType = VideoContext;
 
 export default PlayPauseButton;
