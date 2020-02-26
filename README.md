@@ -2,5 +2,5 @@ Source code for the tutorial [React Context API: updating Context from a nested 
 
 ## Content
 
-1. [with-classes](https://github.com/KaterinaLupacheva/react-context/tree/master/with-classes) folder - React Context API in class components.
+1. [with-classes](https://github.com/KaterinaLupacheva/react-context/tree/master/with-classes) - React Context API in class components.
 2. [with-hooks](https://github.com/KaterinaLupacheva/react-context/tree/master/with-hooks) - React Context API in functional components.
